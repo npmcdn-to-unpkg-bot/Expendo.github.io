@@ -431,7 +431,8 @@
       
         
           
-            
+            <h3 id="Demo："><a href="#Demo：" class="headerlink" title="Demo："></a>Demo：</h3><p> <a href="https://github.com/Expendo/webpack-react-es6" target="_blank" rel="external">react+webpack+es6</a></p>
+
           
         
       
@@ -543,7 +544,10 @@
       
         
           
-            
+            <h2 id="Why-We-Chose-VueJS"><a href="#Why-We-Chose-VueJS" class="headerlink" title="Why We Chose VueJS"></a>Why We Chose VueJS</h2><blockquote>
+<p>Vue.js 的最大特点就是上手简单：你不需要理解 Angular 的依赖注入是什么东东、$digest 和 $apply, preLink 和 postLink 有什么区别，也不需要像 React 那样编译 JSX，更不需要像 Knockout 那样把所有的属性都变成函数… 在 Vue.js 的定义中，View 就是用户实际看到的 DOM 元素，而 Model 就是原生的JavaScript 对象。作为开发者，真正需要关注的只有 ViewModel，也就是 Vue.js 所提供的 Vue 构建函数</p>
+</blockquote>
+<h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"> &lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">	&lt;title&gt;Document&lt;/title&gt;</div><div class="line">	&lt;script src=&quot;//cdn.bootcss.com/vue/1.0.26/vue.js&quot;&gt;&lt;/script&gt;</div><div class="line">	&lt;link href=&quot;http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;</div><div class="line">	&lt;script src=&quot;//cdn.bootcss.com/vue-resource/0.9.3/vue-resource.js&quot;&gt;&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line"></div><div class="line"></div><div class="line">	&lt;div id=&quot;app&quot; style=&quot;margin:20px auto; width: 300px;&quot;&gt;</div><div class="line">	   &lt;counter heading=&quot;link&quot; color=&quot;pink&quot;&gt;&lt;/counter&gt;</div><div class="line">       &lt;counter heading=&quot;dislink&quot; color=&quot;yellow&quot;&gt;&lt;/counter&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line"></div><div class="line">  &lt;template id=&quot;counter-template&quot;&gt;</div><div class="line">    &lt;h1&gt;&#123;&#123;heading&#125;&#125;&lt;/h1&gt;</div><div class="line">  	&lt;button class=&quot;form-control &quot; @click=&quot;count+=1&quot; style=&quot;background: &#123;&#123;color&#125;&#125;;&quot;&gt;点击我&#123;&#123;count&#125;&#125;&lt;/button&gt;</div><div class="line">  &lt;/template&gt;</div><div class="line"></div><div class="line">	&lt;script&gt;</div><div class="line">	 Vue.component(&apos;counter&apos;,&#123;</div><div class="line">       template:&apos;#counter-template&apos;,</div><div class="line">       props:[&apos;heading&apos;,&apos;color&apos;],</div><div class="line">       data:function()&#123;</div><div class="line">     	return &#123;count:0&#125;</div><div class="line">      &#125;</div><div class="line">	  &#125;);</div><div class="line"></div><div class="line">	  new Vue(&#123;</div><div class="line">	  	el:&apos;#app&apos;</div><div class="line">	  &#125;)</div><div class="line"></div><div class="line">	&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
           
         
       
