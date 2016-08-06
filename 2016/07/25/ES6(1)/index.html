@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="js,angular," />
+  <meta name="keywords" content="js,es6," />
 
 
 
@@ -78,13 +78,28 @@
 
 
 
+<meta name="description" content="var 和 let/const 的比较    es6新增了let和const,和 var 不一样的是，let 和 const 不存在变量提升
+
+使用var
+
+123456789var drink = &amp;quot;coke&amp;quot;;function getDrink(obj)&amp;#123;	if(obj)&amp;#123;		var drink = &amp;quot;tea&amp;quot;;		return dr">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Angular">
-<meta property="og:url" content="http://yoursite.com/2016/08/01/AngularJs/index.html">
+<meta property="og:title" content="ES6(一)">
+<meta property="og:url" content="http://yoursite.com/2016/07/25/ES6(1)/index.html">
 <meta property="og:site_name" content="BLOG">
-<meta property="og:updated_time" content="2016-08-02T15:38:49.043Z">
+<meta property="og:description" content="var 和 let/const 的比较    es6新增了let和const,和 var 不一样的是，let 和 const 不存在变量提升
+
+使用var
+
+123456789var drink = &amp;quot;coke&amp;quot;;function getDrink(obj)&amp;#123;	if(obj)&amp;#123;		var drink = &amp;quot;tea&amp;quot;;		return dr">
+<meta property="og:updated_time" content="2016-08-06T02:58:53.361Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Angular">
+<meta name="twitter:title" content="ES6(一)">
+<meta name="twitter:description" content="var 和 let/const 的比较    es6新增了let和const,和 var 不一样的是，let 和 const 不存在变量提升
+
+使用var
+
+123456789var drink = &amp;quot;coke&amp;quot;;function getDrink(obj)&amp;#123;	if(obj)&amp;#123;		var drink = &amp;quot;tea&amp;quot;;		return dr">
 
 
 
@@ -105,9 +120,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/01/AngularJs/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/07/25/ES6(1)/"/>
 
-  <title> Angular | BLOG </title>
+  <title> ES6(一) | BLOG </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -237,7 +252,7 @@
             
             
               
-                Angular
+                ES6(一)
               
             
           </h1>
@@ -249,8 +264,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-01T23:00:21+08:00" content="2016-08-01">
-              2016-08-01
+            <time itemprop="dateCreated" datetime="2016-07-25T11:19:08+08:00" content="2016-07-25">
+              2016-07-25
             </time>
           </span>
 
@@ -296,7 +311,24 @@
       
 
       
-        
+        <p><font color="#05dc3f"><strong>var 和 let/const 的比较</strong></font><br>    <em>es6新增了let和const,和 var 不一样的是，let 和 const 不存在变量提升</em></p>
+<blockquote>
+<p>使用var</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var drink = &quot;coke&quot;;</div><div class="line">function getDrink(obj)&#123;</div><div class="line">	if(obj)&#123;</div><div class="line">		var drink = &quot;tea&quot;;</div><div class="line">		return drink;</div><div class="line">	&#125;</div><div class="line">	return drink;</div><div class="line">&#125;</div><div class="line">getDrink(false);//undefined</div></pre></td></tr></table></figure>
+<blockquote>
+<p>使用let替换</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">let drink = &quot;coke&quot;;</div><div class="line">function getDrink(obj)&#123;</div><div class="line">	if(obj)&#123;</div><div class="line">		let drink = &quot;tea&quot;;</div><div class="line">		return drink;</div><div class="line">	&#125;</div><div class="line">	return drink;</div><div class="line">&#125;</div><div class="line">getDrink(false);//coke</div></pre></td></tr></table></figure>
+<p><em>注意： let 和 const 是块级作用域，因此在变量未被定义之前使用它会产生一个Uncaught ReferenceError</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log(x);//Uncaught ReferenceError: x is not defined(…)</div><div class="line">let x=&quot;hi&quot;;</div></pre></td></tr></table></figure></p>
+<hr>
+<p><font color="#05dc3f"><strong>字符串</strong></font><br>    <em>在 ES6 中，标准库升级了很多，在这些变化中有许多新的对于字符串的函数，比如 .includes() 和 .repeat()</em></p>
+<blockquote>
+<p>.repeat()</p>
+</blockquote>
+<p>传统：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function repeat(string, count) &#123;</div><div class="line">    var strings = [];</div><div class="line">    while(strings.length &lt; count) &#123;</div><div class="line">        strings.push(string);</div><div class="line">    &#125;</div><div class="line">    return strings.join(&apos;&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>es6:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// String.repeat(numberOfRepetitions)</div><div class="line">&apos;meow&apos;.repeat(3); // &apos;meowmeowmeow&apos;</div></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -320,7 +352,7 @@
           
             <a href="/tags/js/" rel="tag">#js</a>
           
-            <a href="/tags/angular/" rel="tag">#angular</a>
+            <a href="/tags/es6/" rel="tag">#es6</a>
           
         </div>
       
@@ -329,12 +361,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/07/20/ReactJs/" rel="next" title="React">
+                <i class="fa fa-chevron-left"></i> React
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/08/02/VueJs/" rel="prev" title="Vue">
-                Vue <i class="fa fa-chevron-right"></i>
+              <a href="/2016/07/28/AngularJs/" rel="prev" title="Angular">
+                Angular <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
