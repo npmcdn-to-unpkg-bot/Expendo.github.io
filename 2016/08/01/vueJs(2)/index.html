@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="js,react," />
+  <meta name="keywords" content="js,vue," />
 
 
 
@@ -78,16 +78,25 @@
 
 
 
-<meta name="description" content="Demo： react+webpack+es6">
+<meta name="description" content="组件通信(props)
+prop 默认是单向绑定：当父组件的属性变化时，将传导给子组件，但是反过来不会。这是为了防止子组件无意修改了父组件的状态——这会让应用的数据流难以理解。不过，也可以使用 .sync 或 .once 绑定修饰符显式地强制双向或单次绑定
+
+HTML:1234567891011121314151617181920212223      &amp;lt;div id=&amp;apos;app&amp;a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React">
-<meta property="og:url" content="http://yoursite.com/2016/07/20/ReactJs/index.html">
+<meta property="og:title" content="Vue(2)">
+<meta property="og:url" content="http://yoursite.com/2016/08/01/vueJs(2)/index.html">
 <meta property="og:site_name" content="BLOG">
-<meta property="og:description" content="Demo： react+webpack+es6">
-<meta property="og:updated_time" content="2016-08-06T02:59:15.921Z">
+<meta property="og:description" content="组件通信(props)
+prop 默认是单向绑定：当父组件的属性变化时，将传导给子组件，但是反过来不会。这是为了防止子组件无意修改了父组件的状态——这会让应用的数据流难以理解。不过，也可以使用 .sync 或 .once 绑定修饰符显式地强制双向或单次绑定
+
+HTML:1234567891011121314151617181920212223      &amp;lt;div id=&amp;apos;app&amp;a">
+<meta property="og:updated_time" content="2016-08-06T03:42:19.933Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="React">
-<meta name="twitter:description" content="Demo： react+webpack+es6">
+<meta name="twitter:title" content="Vue(2)">
+<meta name="twitter:description" content="组件通信(props)
+prop 默认是单向绑定：当父组件的属性变化时，将传导给子组件，但是反过来不会。这是为了防止子组件无意修改了父组件的状态——这会让应用的数据流难以理解。不过，也可以使用 .sync 或 .once 绑定修饰符显式地强制双向或单次绑定
+
+HTML:1234567891011121314151617181920212223      &amp;lt;div id=&amp;apos;app&amp;a">
 
 
 
@@ -108,9 +117,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/07/20/ReactJs/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/08/01/vueJs(2)/"/>
 
-  <title> React | BLOG </title>
+  <title> Vue(2) | BLOG </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -240,7 +249,7 @@
             
             
               
-                React
+                Vue(2)
               
             
           </h1>
@@ -252,8 +261,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-20T23:29:03+08:00" content="2016-07-20">
-              2016-07-20
+            <time itemprop="dateCreated" datetime="2016-08-01T11:28:54+08:00" content="2016-08-01">
+              2016-08-01
             </time>
           </span>
 
@@ -266,8 +275,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/javaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">javaScript</span>
+                  <a href="/categories/vueJs/" itemprop="url" rel="index">
+                    <span itemprop="name">vueJs</span>
                   </a>
                 </span>
 
@@ -299,8 +308,11 @@
       
 
       
-        <h3 id="Demo："><a href="#Demo：" class="headerlink" title="Demo："></a>Demo：</h3><p> <a href="https://github.com/Expendo/webpack-react-es6" target="_blank" rel="external">react+webpack+es6</a></p>
-
+        <h2 id="组件通信-props"><a href="#组件通信-props" class="headerlink" title="组件通信(props)"></a>组件通信(props)</h2><blockquote>
+<p>prop 默认是单向绑定：当父组件的属性变化时，将传导给子组件，但是反过来不会。这是为了防止子组件无意修改了父组件的状态——这会让应用的数据流难以理解。不过，也可以使用 .sync 或 .once 绑定修饰符显式地强制双向或单次绑定</p>
+</blockquote>
+<h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML:"></a>HTML:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">      &lt;div id=&apos;app&apos; &gt;</div><div class="line">	&lt;filter-list&gt;&lt;/filter-list&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;template id=&apos;filter-list-temp&apos;&gt;</div><div class="line">	&lt;div&gt;</div><div class="line">		&lt;h4&gt;filter list&lt;/h4&gt;</div><div class="line">		&lt;condition :filter-text.sync=&quot;filterText&quot;&gt;&lt;/condition&gt;</div><div class="line">		&lt;list :items=&quot;filteredItems&quot;&gt;&lt;/list&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;template id=&apos;condition-temp&apos;&gt;</div><div class="line">	&lt;div&gt;</div><div class="line">		&lt;input v-model=&quot;filterText&quot;/&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;template id=&apos;lists-temp&apos;&gt;</div><div class="line">	&lt;div&gt;</div><div class="line">		&lt;p v-for=&quot;item in items&quot;&gt;&#123;&#123;item&#125;&#125;&lt;/p&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/template&gt;</div></pre></td></tr></table></figure>
+<h3 id="Js"><a href="#Js" class="headerlink" title="Js:"></a>Js:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">Vue.component(&apos;condition&apos;, &#123;</div><div class="line">  template: &apos;#condition-temp&apos;,</div><div class="line">  props: [&apos;filterText&apos;]</div><div class="line">&#125;);</div><div class="line"></div><div class="line">Vue.component(&apos;list&apos;, &#123;</div><div class="line">  template: &apos;#lists-temp&apos;,</div><div class="line">  props: [&apos;items&apos;]</div><div class="line">&#125;);</div><div class="line"></div><div class="line">Vue.component(&apos;filter-list&apos;, &#123;</div><div class="line">  template: &apos;#filter-list-temp&apos;,</div><div class="line">  data: function() &#123;</div><div class="line">     return &#123;</div><div class="line">       filterText: &apos;&apos;,</div><div class="line">       items: [&apos;JYang&apos;,&apos;Angel&apos;,&apos;New York&apos;,&apos;ndf1&apos;,&apos;people&apos;,&apos;china&apos;]</div><div class="line">     &#125;</div><div class="line">  &#125;,</div><div class="line">  computed: &#123;</div><div class="line">    filteredItems: function() &#123;</div><div class="line">      return this.$data.items.filter(function(item) &#123;</div><div class="line">        return item.indexOf(this.$data.filterText) != -1;</div><div class="line">      &#125;.bind(this));</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">new Vue(&#123;</div><div class="line">  el: &apos;#app&apos;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -324,7 +336,7 @@
           
             <a href="/tags/js/" rel="tag">#js</a>
           
-            <a href="/tags/react/" rel="tag">#react</a>
+            <a href="/tags/vue/" rel="tag">#vue</a>
           
         </div>
       
@@ -333,13 +345,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/07/29/vueJs(1)/" rel="next" title="Vue(1)">
+                <i class="fa fa-chevron-left"></i> Vue(1)
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/25/ES6(1)/" rel="prev" title="ES6(一)">
-                ES6(一) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -491,7 +503,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Demo："><span class="nav-number">1.</span> <span class="nav-text">Demo：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#组件通信-props"><span class="nav-number">1.</span> <span class="nav-text">组件通信(props)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML"><span class="nav-number">1.1.</span> <span class="nav-text">HTML:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Js"><span class="nav-number">1.2.</span> <span class="nav-text">Js:</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

@@ -239,8 +239,124 @@
             
               
                 
-                <a class="post-title-link" href="/2016/07/29/VueJs/" itemprop="url">
-                  Vue
+                <a class="post-title-link" href="/2016/08/01/vueJs(2)/" itemprop="url">
+                  Vue(2)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-01T11:28:54+08:00" content="2016-08-01">
+              2016-08-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/vueJs/" itemprop="url" rel="index">
+                    <span itemprop="name">vueJs</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="组件通信-props"><a href="#组件通信-props" class="headerlink" title="组件通信(props)"></a>组件通信(props)</h2><blockquote>
+<p>prop 默认是单向绑定：当父组件的属性变化时，将传导给子组件，但是反过来不会。这是为了防止子组件无意修改了父组件的状态——这会让应用的数据流难以理解。不过，也可以使用 .sync 或 .once 绑定修饰符显式地强制双向或单次绑定</p>
+</blockquote>
+<h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML:"></a>HTML:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">      &lt;div id=&apos;app&apos; &gt;</div><div class="line">	&lt;filter-list&gt;&lt;/filter-list&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;template id=&apos;filter-list-temp&apos;&gt;</div><div class="line">	&lt;div&gt;</div><div class="line">		&lt;h4&gt;filter list&lt;/h4&gt;</div><div class="line">		&lt;condition :filter-text.sync=&quot;filterText&quot;&gt;&lt;/condition&gt;</div><div class="line">		&lt;list :items=&quot;filteredItems&quot;&gt;&lt;/list&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;template id=&apos;condition-temp&apos;&gt;</div><div class="line">	&lt;div&gt;</div><div class="line">		&lt;input v-model=&quot;filterText&quot;/&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;template id=&apos;lists-temp&apos;&gt;</div><div class="line">	&lt;div&gt;</div><div class="line">		&lt;p v-for=&quot;item in items&quot;&gt;&#123;&#123;item&#125;&#125;&lt;/p&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/template&gt;</div></pre></td></tr></table></figure>
+<h3 id="Js"><a href="#Js" class="headerlink" title="Js:"></a>Js:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">Vue.component(&apos;condition&apos;, &#123;</div><div class="line">  template: &apos;#condition-temp&apos;,</div><div class="line">  props: [&apos;filterText&apos;]</div><div class="line">&#125;);</div><div class="line"></div><div class="line">Vue.component(&apos;list&apos;, &#123;</div><div class="line">  template: &apos;#lists-temp&apos;,</div><div class="line">  props: [&apos;items&apos;]</div><div class="line">&#125;);</div><div class="line"></div><div class="line">Vue.component(&apos;filter-list&apos;, &#123;</div><div class="line">  template: &apos;#filter-list-temp&apos;,</div><div class="line">  data: function() &#123;</div><div class="line">     return &#123;</div><div class="line">       filterText: &apos;&apos;,</div><div class="line">       items: [&apos;JYang&apos;,&apos;Angel&apos;,&apos;New York&apos;,&apos;ndf1&apos;,&apos;people&apos;,&apos;china&apos;]</div><div class="line">     &#125;</div><div class="line">  &#125;,</div><div class="line">  computed: &#123;</div><div class="line">    filteredItems: function() &#123;</div><div class="line">      return this.$data.items.filter(function(item) &#123;</div><div class="line">        return item.indexOf(this.$data.filterText) != -1;</div><div class="line">      &#125;.bind(this));</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">new Vue(&#123;</div><div class="line">  el: &apos;#app&apos;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/29/vueJs(1)/" itemprop="url">
+                  Vue(1)
                 </a>
               
             
@@ -267,8 +383,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/javaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">javaScript</span>
+                  <a href="/categories/vueJs/" itemprop="url" rel="index">
+                    <span itemprop="name">vueJs</span>
                   </a>
                 </span>
 
@@ -728,7 +844,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -736,7 +852,7 @@
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
