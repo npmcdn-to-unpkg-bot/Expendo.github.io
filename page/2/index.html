@@ -81,7 +81,7 @@
 <meta name="description" content="blog">
 <meta property="og:type" content="website">
 <meta property="og:title" content="BLOG">
-<meta property="og:url" content="http://yoursite.com/tags/centos/index.html">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="BLOG">
 <meta property="og:description" content="blog">
 <meta name="twitter:card" content="summary">
@@ -107,9 +107,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/centos/"/>
+  <link rel="canonical" href="http://yoursite.com/page/2/"/>
 
-  <title> 标签: centos | BLOG </title>
+  <title> BLOG </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -130,7 +130,9 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -227,47 +229,142 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        centos
-        <small>标签</small>
-      </h2>
-    </div>
-
+  <section id="posts" class="posts-expand">
     
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
 
-      <h1 class="post-title">
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2016/06/15/centos7/" itemprop="url">
-              
-                <span itemprop="name">centos7</span>
-              
-            </a>
         
-      </h1>
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/10/AngularJs/" itemprop="url">
+                  关于Angular自定义filter时间上的坑
+                </a>
+              
+            
+          </h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-15T00:14:58+08:00"
-              content="2016-06-15" >
-          06-15
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-10T23:00:21+08:00" content="2016-06-10">
+              2016-06-10
+            </time>
+          </span>
 
-    </header>
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/angularJs/" itemprop="url" rel="index">
+                    <span itemprop="name">angularJs</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/10/AngularJs/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/10/AngularJs/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="关于ie和谷歌等浏览器的对时间兼容不同"><a href="#关于ie和谷歌等浏览器的对时间兼容不同" class="headerlink" title="关于ie和谷歌等浏览器的对时间兼容不同"></a>关于ie和谷歌等浏览器的对时间兼容不同</h4><blockquote>
+<p>后台返的yyyy-MM-dd</p>
+</blockquote>
+<p>先看看原来项目中之前的类似的（这段代码不是我写的）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">app.filter(&quot;overTime&quot;, function () &#123;</div><div class="line">       return function (time) &#123;</div><div class="line">           var days = (new Date(time).getTime() - new Date().getTime()) / 86400000;</div><div class="line">           days = parseFloat(days);</div><div class="line">           var resDes = &quot;&quot;;</div><div class="line">           switch (true) &#123;</div><div class="line">               case (days &lt; 0):</div><div class="line">                   resDes = &quot;已过期&quot;;</div><div class="line">                   break;</div><div class="line">               case (days &lt; 1):</div><div class="line">                   resDes = &quot;少于1天&quot;;</div><div class="line">                   break;</div><div class="line">               case (days &gt; 1 &amp;&amp; days &lt; 365):</div><div class="line">                   resDes = parseInt(days) + &quot;天&quot;;</div><div class="line">                   break;</div><div class="line">               case days &gt; 365:</div><div class="line">                   resDes = &quot;超过一年&quot;;</div><div class="line">                   break;</div><div class="line">           &#125;</div><div class="line">           return resDes;</div><div class="line">       &#125;;</div><div class="line">   &#125;);</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>这代码 你可以试试 在ie11，ie10浏览器去时间过滤会显示空白,原来 ie不认识这种时间格式 只认识yyyy/MM/dd（其它浏览器也支持）,所以全部把yyyy-MM-dd改为yyyy/MM/dd 再去转换(当初也是我改的bug)<br>var  ddate = new Date((‘2014-05-10 13:25:50’).replace(new RegExp(“-“,”gm”),”/“)).getTime()</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">app.filter(&quot;showTime&quot;, function () &#123;</div><div class="line">       return function (time) &#123;</div><div class="line">           var day1 = new Date((time).replace(new RegExp(&quot;-&quot;, &quot;gm&quot;), &quot;/&quot;)).getTime();</div><div class="line">           var days = (new Date().getTime() - day1) / 86400000;</div><div class="line">           days = parseFloat(days);</div><div class="line">           var resDes = &quot;&quot;;</div><div class="line"></div><div class="line">           switch (true) &#123;</div><div class="line">               case (days &lt; 0.0416667):</div><div class="line">                   var thisSecond = parseInt(days * 24 * 60);</div><div class="line">                   if (thisSecond === 0) &#123;</div><div class="line">                       resDes = &quot;刚刚&quot;;</div><div class="line">                   &#125; else &#123;</div><div class="line">                       resDes = parseInt(days * 24 * 60) + &quot;分钟前&quot;;</div><div class="line">                   &#125;</div><div class="line">                   break;</div><div class="line">               case (days &lt; 1):</div><div class="line">                   resDes = parseInt(days * 24) + &quot;小时前&quot;;</div><div class="line">                   break;</div><div class="line">               case (days &lt; 5):</div><div class="line">                   resDes = parseInt(days) + &quot;天前&quot;;</div><div class="line">                   break;</div><div class="line">               case days &gt; 5:</div><div class="line">                   resDes = time;</div><div class="line">                   break;</div><div class="line">           &#125;</div><div class="line">           return resDes;</div><div class="line">       &#125;;</div><div class="line">   &#125;);</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </article>
 
 
     
-  </div>
+  </section>
 
   
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
 
 
           </div>
