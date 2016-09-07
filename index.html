@@ -252,6 +252,251 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/02/Num/" itemprop="url">
+                  Num的转换
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-02T21:42:49+08:00" content="2016-09-02">
+              2016-09-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/javaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">javaScript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/02/Num/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/02/Num/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">function numTostr(str)&#123;</div><div class="line">		var uit  = [&quot;&quot;,&quot;十&quot;,&quot;百&quot;,&quot;千&quot;];</div><div class="line">		var uitt = [&quot;亿&quot;,&quot;万&quot;,&quot;&quot;];</div><div class="line">		var capi = [&quot;零&quot;,&quot;一&quot;,&quot;二&quot;,&quot;三&quot;,&quot;四&quot;,&quot;五&quot;,&quot;六&quot;,&quot;七&quot;,&quot;八&quot;,&quot;九&quot;,&quot;十&quot;];</div><div class="line">		var result=&quot;&quot;;</div><div class="line">		str = Array( 12 &gt; str.length ? ( 12 - (&apos;&apos; + str).length + 1) : 0 ).join(0) + str;</div><div class="line">		for(var i=0;i&lt;3;i++)&#123;</div><div class="line">			str0 = str.substr(i*4,4);</div><div class="line">			if(str0!=0)&#123;</div><div class="line">				for(var j = 0 ; j &lt; 4; j++) &#123;</div><div class="line">					if(str0.charAt(j)==0)&#123;</div><div class="line">						result += capi[str0.charAt(j)];</div><div class="line">					&#125;else&#123;</div><div class="line">						result += capi[str0.charAt(j)]+uit[3-j];</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">				result = result.replace(/零&#123;2,&#125;/gi,&quot;零&quot;);</div><div class="line">				result = result.replace(/^零/,&quot;&quot;);</div><div class="line">				result = result.replace(/零$/,&quot;&quot;);</div><div class="line">				result+=uitt[i];</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		return result;</div><div class="line">	&#125;；</div><div class="line">	console.log(numTostr(&quot;100004353463&quot;));  //一千亿零四百三十五万三千四百六十三</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/01/tofixed/" itemprop="url">
+                  Tofixed
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-01T16:44:00+08:00" content="2016-09-01">
+              2016-09-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/javaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">javaScript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/01/tofixed/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/01/tofixed/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p> 关于toFixed的四舍六入解决办法（比较好用）</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">function decimal(num,v)</div><div class="line">&#123;</div><div class="line">    var vv = Math.pow(10,v);</div><div class="line">    return Math.round(num*vv)/vv;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">decimal(1.345,2) //1.35</div></pre></td></tr></table></figure>
+<blockquote>
+<p>第一个参数是num，第2个是你要取的位数</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/10/nodeJs-spider/" itemprop="url">
                   《superagent 与 cheerio 完成简单爬虫》
                 </a>
@@ -1272,260 +1517,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/08/ng/" itemprop="url">
-                  AngularJs
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-08T22:39:58+08:00" content="2016-07-08">
-              2016-07-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/angularJs/" itemprop="url" rel="index">
-                    <span itemprop="name">angularJs</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/08/ng/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/08/ng/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Angular"><a href="#Angular" class="headerlink" title="Angular"></a>Angular</h3><p>DEMO:<a href="https://github.com/Expendo/Angular-demo" target="_blank" rel="external">ng+ngRouter+ui-bootstrap</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/20/git/" itemprop="url">
-                  git简单服务器搭建
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-20T00:29:21+08:00" content="2016-06-20">
-              2016-06-20
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/20/git/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/20/git/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>搭建Git服务器需要准备一台运行Linux的机器，强烈推荐用Ubuntu或Debian，这样，通过几条简单的apt命令就可以完成安装。假设你已经有sudo权限的用户账号，下面，正式开始安装。(我用的ubuntu)</p>
-</blockquote>
-<h4 id="1、安装git"><a href="#1、安装git" class="headerlink" title="1、安装git"></a>1、安装git</h4><p><code>$ sudo apt-get install git</code></p>
-<h4 id="2、创建一个git用户，用来运行git服务"><a href="#2、创建一个git用户，用来运行git服务" class="headerlink" title="2、创建一个git用户，用来运行git服务"></a>2、创建一个git用户，用来运行git服务</h4><p><code>$ sudo adduser git</code></p>
-<h4 id="3、创建证书登录"><a href="#3、创建证书登录" class="headerlink" title="3、创建证书登录"></a>3、创建证书登录</h4><p>收集所有需要登录的用户的公钥，就是他们自己的id_rsa.pub文件，把所有公钥导入到/home/git/.ssh/authorized_keys文件里，一行一个。</p>
-<h4 id="4、初始化Git仓库"><a href="#4、初始化Git仓库" class="headerlink" title="4、初始化Git仓库"></a>4、初始化Git仓库</h4><p>先选定一个目录作为Git仓库，假定是sample.git，在~目录下输入命令：<br><code>$ git init --bare sample.git</code></p>
-<h4 id="5、禁用shell登录"><a href="#5、禁用shell登录" class="headerlink" title="5、禁用shell登录"></a>5、禁用shell登录</h4><p>出于安全考虑，第二步创建的git用户不允许登录shell，这可以通过编辑/etc/passwd文件完成。找到类似下面的一行：<br><code>git:x:1001:1001:,,,:/home/git:/bin/bash</code><br>改为<br><code>git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell</code></p>
-<blockquote>
-<p>这样，git用户可以正常通过ssh使用git，但无法登录shell，因为我们为git用户指定的git-shell每次一登录就自动退出。所以，当退出git用户登录之后，不能再切换到git。下次创建仓库时需要通过其他用户，然后将目录更改为git和其组<br><code>git init --bare test.git &amp;&amp; chown -R git:git test.git</code></p>
-</blockquote>
-<h4 id="6、克隆远程仓库"><a href="#6、克隆远程仓库" class="headerlink" title="6、克隆远程仓库"></a>6、克隆远程仓库</h4><p>现在，可以通过git clone命令克隆远程仓库了，在各自的电脑上运行<br><code>$ git clone git@server:~/sample.git</code><br><code>Cloning into &#39;sample&#39;...warning: You appear to have cloned an empty repository.</code></p>
-<blockquote>
-<p>剩下的推送就简单了。 管理公钥如果团队很小，把每个人的公钥收集起来放到服务器的/home/git/.ssh/authorized_keys文件里就是可行的。如果团队有几百号人，就没法这么玩了，这时，可以用Gitosis来管理公钥。<a href="https://github.com/res0nat0r/gitosis" target="_blank" rel="external">Gitosis</a>,我就不介绍了。</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1571,7 +1562,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
